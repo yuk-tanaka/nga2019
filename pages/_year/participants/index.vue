@@ -3,7 +3,7 @@
     <base-page-title :title="title"></base-page-title>
     <v-flex xs12 class="mb-6">
       <ul>
-        <li>大阪エリア以外の店舗情報、タイムラインについては公式情報公開しだい実装します。</li>
+        <li>公式情報の公開しだい、随時データ登録します。</li>
       </ul>
     </v-flex>
     <v-flex xs12 class="mb-6">
@@ -26,8 +26,9 @@
     <v-layout align-center justify-end class="mb-3">
       <span class="body-2">{{collection.total}}件の検索結果</span>
     </v-layout>
-    <v-flex xs12 v-if="timeline" class="mb-6">
-      coming soon.
+    <v-flex xs12 v-if="timeline" class="mt-3">
+      <participant-timeline v-if="isSelectedArea" :areaIds="selectedAreas"></participant-timeline>
+      <p v-else>エリアを選択してください。</p>
     </v-flex>
     <v-flex xs12 v-else>
       <participant-list :is-last-page="isLastPage"
@@ -44,12 +45,14 @@ import {mapActions} from 'vuex'
 import BaseAreaSearchBox from '~/components/BaseAreaSearchBox.vue'
 import BasePageTitle from '~/components/BasePageTitle.vue'
 import ParticipantList from '~/components/ParticipantList.vue'
+import ParticipantTimeline from '~/components/ParticipantTimeline.vue'
 
 export default {
   components: {
     BaseAreaSearchBox,
     BasePageTitle,
-    ParticipantList
+    ParticipantList,
+    ParticipantTimeline
   },
   async asyncData({params, $axios}) {
     const res = await $axios.get(process.env.NGA_API_URL + '/' + params.year + '/participants/all')

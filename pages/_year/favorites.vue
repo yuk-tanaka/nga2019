@@ -23,8 +23,8 @@
     <v-layout align-center justify-end class="mb-3">
       <span class="body-2">{{collection.total}}件の検索結果</span>
     </v-layout>
-    <v-flex xs12 v-if="timeline" class="mb-6">
-      coming soon.
+    <v-flex xs12 v-if="timeline" class="mt-3">
+      <participant-timeline v-if="hasFavorite" :participantIds="favorites"></participant-timeline>
     </v-flex>
     <v-flex xs12 v-else>
       <participant-list :is-last-page="isLastPage"
@@ -41,12 +41,14 @@ import {mapActions} from 'vuex'
 import BaseAreaSearchBox from '~/components/BaseAreaSearchBox.vue'
 import BasePageTitle from '~/components/BasePageTitle.vue'
 import ParticipantList from '~/components/ParticipantList.vue'
+import ParticipantTimeline from '~/components/ParticipantTimeline.vue'
 
 export default {
   components: {
     BaseAreaSearchBox,
     BasePageTitle,
-    ParticipantList
+    ParticipantList,
+    ParticipantTimeline
   },
   head() {
     return {
@@ -62,14 +64,15 @@ export default {
   },
   computed: {
     favorites: () => Object.keys(localStorage),
+    hasFavorite: v => v.favorites.length,
     title: v => v.$route.params.year + 'チェックリスト',
     isLastPage: v => v.collection.to === v.collection.total || v.collection.total === 0
   },
   //SSRではlocalStorageを取得できないためmounted()を使用する
   async mounted() {
     //localStorage0件のときは422
-    if (!this.favorites.length) {
-      return;
+    if (!this.hasFavorite) {
+      return
     }
     const res = await this.$axios.get(
       process.env.NGA_API_URL + '/' + this.$route.params.year + '/participants/favorites',
