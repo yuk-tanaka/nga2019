@@ -18,7 +18,9 @@
           ></v-combobox>
         </v-flex>
         <v-flex xs12 v-if="hasArea">
-          <h3 class="title">地域名を選択</h3>
+          <h3 class="title mb-2">地域名を選択</h3>
+          <v-btn class="mb-2 mr-2" color="primary" small　@click="setAll">全選択</v-btn>
+          <v-btn class="mb-2" color="error" small @click="unsetAll">全解除</v-btn>
           <v-layout row wrap>
             <v-flex xs6 sm4 md3 lg2 v-for="area in areas" :key="area.id">
               <v-checkbox
@@ -79,6 +81,12 @@ export default {
       this.areas = res.data
       //選択されていない都市のareaを選択解除
       this.selectedAreas = this.selectedAreas.filter(selected => this.areas.find(area => area.id === selected))
+    },
+    setAll() {
+      this.selectedAreas = this.areas.map(area => area.id)
+    },
+    unsetAll() {
+      this.selectedAreas = []
     }
   }
 }
