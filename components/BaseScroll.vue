@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-center v-if="!isLastPage">
-    <mugen-scroll :handler="handleMugenScroll" :should-handle="!isLoading" class="pt-3">
+    <mugen-scroll :handler="handleMugenScroll" :should-handle="!isLoading" class="pt-3 pb-10">
       <v-btn color="primary" small text @click="handleMugenScroll">次のデータの読み込みが開始されないときはクリック</v-btn>
     </mugen-scroll>
   </v-layout>
