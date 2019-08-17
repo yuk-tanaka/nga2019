@@ -26,6 +26,13 @@
           <section class="mb-4">
             <h3 class="title mb-2">店舗情報</h3>
             <base-restaurant-information :restaurant="participant.restaurant"></base-restaurant-information>
+            <v-flex xs12 class="mt-2" v-if="participant.restaurant_description">
+              <h4 class="subtitle-1">
+                <v-icon class="mr-2" small>mdi-details</v-icon>
+                店舗説明
+              </h4>
+              <p class="ma-0">{{participant.restaurant_description}}</p>
+            </v-flex>
           </section>
           <section class="mb-4">
             <h3 class="title mb-2">酒蔵情報</h3>
@@ -49,6 +56,32 @@
                 <v-icon class="mr-2" small>mdi-home</v-icon>
                 <a :href="participant.brewery.web" target="_blank">{{participant.brewery.web}}</a>
               </v-flex>
+              <v-flex xs12 class="mt-2" v-if="participant.sake_description">
+                <h4 class="subtitle-1">
+                  <v-icon class="mr-2" small>mdi-details</v-icon>
+                  店舗説明
+                </h4>
+                <p class="ma-0">{{participant.sake_description}}</p>
+              </v-flex>
+            </v-layout>
+          </section>
+          <section class="mb-4" v-if="hasSakeShop">
+            <h3 class="title mb-2">酒販店情報</h3>
+            <v-layout wrap>
+              <v-flex xs12>
+                <v-icon class="font-weight-medium mr-2" small>mdi-basket</v-icon>
+                {{participant.brewery.sake_shop.name}}
+              </v-flex>
+              <v-flex xs12>
+                <base-google-link :object="participant.brewery.sake_shop"></base-google-link>
+              </v-flex>
+              <v-flex xs12 class="mt-2">
+                <h4 class="subtitle-1">
+                  <v-icon class="mr-2" small>mdi-calendar-clock</v-icon>
+                  営業時間
+                </h4>
+                <span v-html="businessHours" class="font-weight-medium"></span>
+              </v-flex>
             </v-layout>
           </section>
         </v-card-text>
@@ -71,12 +104,14 @@
 
 <script>
 
+import BaseGoogleLink from '~/components/BaseGoogleLink'
 import BasePageTitle from '~/components/BasePageTitle.vue'
 import BaseRestaurantInformation from '~/components/BaseRestaurantInformation.vue'
 import BaseRestaurantSnsLink from '~/components/BaseRestaurantSnsLink.vue'
 
 export default {
   components: {
+    BaseGoogleLink,
     BasePageTitle,
     BaseRestaurantInformation,
     BaseRestaurantSnsLink
@@ -96,12 +131,14 @@ export default {
     }
   },
   computed: {
+    title: v => v.$route.params.year + '参加店舗一覧',
     cantPrev: v => Number(v.$route.params.id) === 1,
     prevUrl: v => '/2019/participants/' + (Number(v.$route.params.id) - 1).toString(),
     nextUrl: v => '/2019/participants/' + (Number(v.$route.params.id) + 1).toString(),
     participantName: v => v.participant.restaurant.name + ' × ' + v.participant.brewery.name,
     areaName: v => v.participant.restaurant.area.name + '（' + v.participant.restaurant.area.city.name + '）',
-    title: v => v.$route.params.year + '参加店舗一覧',
+    hasSakeShop: v => Object.keys(v.participant.brewery.sake_shop).length > 0,
+    businessHours: v => v.participant.brewery.sake_shop.business_hours || '取得データなし',
   }
 }
 </script>

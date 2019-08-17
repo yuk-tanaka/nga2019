@@ -4,8 +4,14 @@
       <v-icon class="mr-2" small>mdi-glass-cocktail</v-icon>
       <span class="font-weight-bold">{{breweryName}}</span>
     </v-flex>
+    <v-flex xs12 v-if="hasSakeShop">
+      <v-icon class="mr-2" small>mdi-basket</v-icon>
+      <base-google-link :name="participant.brewery.sake_shop.name"
+                        :object="participant.brewery.sake_shop">
+      </base-google-link>
+    </v-flex>
     <v-flex xs12>
-      <base-restaurant-information-google-link :restaurant="participant.restaurant"></base-restaurant-information-google-link>
+      <base-google-link :object="participant.restaurant"></base-google-link>
     </v-flex>
     <v-flex xs12>
       <v-icon class="mr-2" small>mdi-clock-outline</v-icon>
@@ -19,18 +25,19 @@
 </template>
 
 <script>
-import BaseRestaurantInformationGoogleLink from './BaseRestaurantInformationGoogleLink'
+import BaseGoogleLink from './BaseGoogleLink'
 
 export default {
   components: {
-    BaseRestaurantInformationGoogleLink
+    BaseGoogleLink
   },
   props: {
     participant: {type: Object, required: true}
   },
   computed: {
     breweryName: v => v.participant.brewery.prefecture + '・' + v.participant.brewery.name,
-    formattedDistance: v => Math.round(v.participant.distance).toLocaleString()
+    formattedDistance: v => Math.round(v.participant.distance).toLocaleString(),
+    hasSakeShop: v => Object.keys(v.participant.brewery.sake_shop).length > 0
   }
 }
 </script>

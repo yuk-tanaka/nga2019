@@ -1,13 +1,13 @@
 <template>
   <v-layout wrap>
     <v-flex xs12>
-      <base-restaurant-information-google-link :restaurant="restaurant"></base-restaurant-information-google-link>
+      <base-google-link :object="restaurant"></base-google-link>
     </v-flex>
     <v-flex xs12>
       <v-icon class="mr-2" small>mdi-phone</v-icon>
       <span class="font-weight-medium"><a :href="'tel:'+restaurant.tel">{{restaurant.tel}}</a></span>
     </v-flex>
-    <v-flex xs12>
+    <v-flex xs12 class="mt-2">
       <h4 class="subtitle-1">
         <v-icon class="mr-2" small>mdi-calendar-clock</v-icon>
         営業時間
@@ -18,11 +18,11 @@
 </template>
 
 <script>
-import BaseRestaurantInformationGoogleLink from './BaseRestaurantInformationGoogleLink'
+import BaseGoogleLink from './BaseGoogleLink'
 
 export default {
   components: {
-    BaseRestaurantInformationGoogleLink
+    BaseGoogleLink
   },
   props: {
     restaurant: {type: Object, required: true}
