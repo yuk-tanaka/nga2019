@@ -74,6 +74,9 @@
         <li><a href="http://blog.livedoor.jp/manjigatame3/" target="_blank">日本酒卍固め</a></li>
         <li><a href="https://nga-osaka.com/" target="_blank">日本酒ゴーアラウンド大阪</a></li>
         <li><a href="http://www.ne.jp/asahi/nga/guide/" target="_blank">私家版日本酒ゴーアラウンド大阪2017参加ガイド</a></li>
+        <li><a href="http://morohaku.jp/article/186364090.html" target="_blank">
+          もろはく 日本酒ゴーアラウンド2019札幌参加店</a>
+        </li>
         <li><a href="https://www.facebook.com/NGASENDAI/" target="_blank">
           <v-icon color="primary" small>mdi-facebook-box</v-icon>
           日本酒ゴーアラウンド仙台</a>
