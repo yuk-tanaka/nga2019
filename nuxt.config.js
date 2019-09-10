@@ -18,7 +18,14 @@ export default {
         hid: 'description',
         name: 'description',
         content: '毎年10月1日、日本酒の日に開催されるイベント「日本酒ゴーアラウンド（NGA）」の非公式ファンサイト。開催全都市の参加店舗情報および2018年度以降の参加店舗情報を提供。チェックリスト・タイムラインなど便利な機能もログインなしで利用可能。'
-      }
+      },
+      {hid: 'og:title', property: 'og:title', content: 'タイトル'},
+      {hid: 'og:description', property: 'og:description', content: '説明'},
+      {hid: 'og:type', property: 'og:type', content: 'website'},
+      {hid: 'og:url', property: 'og:url', content: 'https://nga.website/'},
+      {hid: 'og:image', property: 'og:image', content: 'https://nga.website/logo.jpg'},
+      {name: 'twitter:card', content: 'summary_large_image'},
+      {name: 'twitter:site', content: '@achel_b8'}
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}

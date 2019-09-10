@@ -139,7 +139,8 @@ export default {
   },
   head() {
     return {
-      title: 'index'
+      titleTemplate: null,
+      title: this.title
     }
   },
   data() {
