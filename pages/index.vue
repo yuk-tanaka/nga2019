@@ -2,6 +2,16 @@
   <v-layout wrap>
     <base-page-title :title="title"></base-page-title>
     <v-flex xs12 class="mb-6">
+      <v-alert
+        border="left"
+        elevation="2"
+        type="warning"
+        colored-border
+      >
+        松江・神戸の開催情報を探しています。
+      </v-alert>
+    </v-flex>
+    <v-flex xs12 class="mb-6">
       <figure>
         <v-img src="/logo.jpg" max-width="476"></v-img>
         <figcaption>
@@ -34,9 +44,6 @@
       </ul>
       <p>
         などの機能を提供しています。
-      </p>
-      <p>
-        2019年度の参加店舗情報に関しては、情報公開しだい随時登録します。
       </p>
     </v-flex>
     <v-flex xs12 class="mb-6">
@@ -95,10 +102,9 @@
           <v-icon color="primary" small>mdi-facebook-box</v-icon>
           日本酒ゴーアラウンド名古屋</a></li>
         <li><a
-          href="https://www.facebook.com/pages/category/Event/%E6%97%A5%E6%9C%AC%E9%85%92%E3%82%B4%E3%83%BC%E3%82%A2%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%892019%E4%BA%AC%E9%83%BD%E7%89%88-301221853760343/"
+          href="http://masu-project.com/ngakyoto/"
           target="_blank">
-          <v-icon color="primary" small>mdi-facebook-box</v-icon>
-          日本酒ゴーアラウンド2019京都版</a></li>
+          日本酒ゴーアラウンド京都版</a></li>
         <li>
           <v-icon color="primary" small>mdi-facebook-box</v-icon>
           <a href="https://www.facebook.com/NGA.KOBE/" target="_blank"><i
