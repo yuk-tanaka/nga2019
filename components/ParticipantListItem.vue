@@ -45,7 +45,7 @@ export default {
   },
   computed: {
     participantName: v => v.participant.restaurant.name + ' × ' + v.participant.brewery.name,
-    showUrl: v => v.$route.path + '/' + v.participant.id
+    showUrl: v => '/' + v.$route.params.year + '/participants/' + v.participant.id
   }
 }
 </script>
