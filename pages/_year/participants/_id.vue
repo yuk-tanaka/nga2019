@@ -117,7 +117,8 @@ export default {
     BaseRestaurantSnsLink
   },
   async asyncData({error, params, $axios}) {
-    const res = await $axios.get(process.env.NGA_API_URL + '/participants/' + params.id).catch(err => err.response)
+    const url = process.env.NGA_API_URL + '/' + params.year + '/participants/' + params.id
+    const res = await $axios.get(url).catch(err => err.response)
     //id=404を想定
     if (res.status !== 200) {
       error({statusCode: res.status, message: res.data.message});
