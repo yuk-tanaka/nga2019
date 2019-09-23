@@ -3,7 +3,8 @@
     <base-page-title :title="title"></base-page-title>
     <v-flex xs12 class="mb-6">
       <ul>
-        <li>公式情報の公開しだい、随時データ登録します。</li>
+        <li>松江の開催情報を探しています。</li>
+        <li>情報が最新でない可能性がありますので、ご了承ください。</li>
       </ul>
     </v-flex>
     <v-flex xs12 class="mb-6">

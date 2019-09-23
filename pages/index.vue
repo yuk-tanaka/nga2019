@@ -8,7 +8,7 @@
         type="warning"
         colored-border
       >
-        松江・神戸の開催情報を探しています。
+        松江の開催情報を探しています。
       </v-alert>
     </v-flex>
     <v-flex xs12 class="mb-6">
