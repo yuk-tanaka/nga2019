@@ -3,7 +3,7 @@
     <base-page-title :title="title"></base-page-title>
     <v-flex xs12 class="mb-6">
       <ul>
-        <li>松江の開催情報を探しています。</li>
+        <li>東京の開催時間が登録情報と異なる場合があります。詳細判明しだい更新します。</li>
         <li>情報が最新でない可能性がありますので、ご了承ください。</li>
       </ul>
     </v-flex>

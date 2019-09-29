@@ -5,10 +5,10 @@
       <v-alert
         border="left"
         elevation="2"
-        type="warning"
+        type="error"
         colored-border
       >
-        松江の開催情報を探しています。
+        東京の開催時間が登録情報と異なる場合があります。詳細判明しだい更新します。
       </v-alert>
     </v-flex>
     <v-flex xs12 class="mb-6">
